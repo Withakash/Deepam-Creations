@@ -27,6 +27,56 @@ html {
   background-color: rgba(245, 245, 245, 0.616);
   width: 100%;
 }
+/* Cart Page Styling */
+main {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+main h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+#cartItems {
+  margin-bottom: 20px;
+}
+
+#cartItems div {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: 'Poppins', sans-serif;
+}
+
+#cartTotal {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #2e7d32;
+}
+
+button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #1b5e20;
+}
 
 .logo {
   position: relative;
