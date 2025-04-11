@@ -47,3 +47,48 @@ var home = document.getElementsByClassName("home-page");
 window.addEventListener("load",function(){
   loader.style.display="none";
 })
+
+
+// Initialize cart from localStorage or as an empty array
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to add items to the cart
+function addToCart(productName, price) {
+  const existingProduct = cart.find(item => item.name === productName);
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+  } else {
+    cart.push({ name: productName, price: price, quantity: 1 });
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Function to display cart items on cart.html
+function displayCart() {
+  const cartItemsContainer = document.getElementById('cartItems');
+  const cartTotalElement = document.getElementById('cartTotal');
+  cartItemsContainer.innerHTML = '';
+  let total = 0;
+
+  cart.forEach(item => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+    const itemElement = document.createElement('div');
+    itemElement.textContent = `${item.name} x ${item.quantity} = ₹${itemTotal}`;
+    cartItemsContainer.appendChild(itemElement);
+  });
+
+  cartTotalElement.textContent = total;
+}
+
+// Function to handle checkout
+function checkout() {
+  // Implement your checkout logic here
+  alert('Proceeding to checkout...');
+  // For example, redirect to a payment page or display a form
+}
+
+// Call displayCart when cart.html is loaded
+if (window.location.pathname.endsWith('cart.html')) {
+  displayCart();
+}
